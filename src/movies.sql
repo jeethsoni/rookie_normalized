@@ -82,7 +82,16 @@ CREATE TABLE IF NOT EXISTS movie_director(
     FOREIGN KEY (director_id) REFERENCES director(director_id)
 );
 
--- 
+--movie review table
+CREATE TABLE IF NOT EXISTS movie_review(
+    review_id INT NOT NULL AUTO_INCREMENT,
+    movie_id INT NOT NULL,
+    review INT NOT NULL,
+    created_at timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    FOREIGN KEY (movie_id) REFERENCES movie(movie_id)
+);
+
+-- trigger on movies table after insert to add review to movie_review table
 delimiter //
 CREATE TRIGGER movies.add_movie_review AFTER INSERT ON movies.movie
        FOR EACH ROW
