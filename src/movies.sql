@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS movie_director(
     FOREIGN KEY (director_id) REFERENCES director(director_id)
 );
 
+
 --movie review table
 CREATE TABLE IF NOT EXISTS movie_review(
     review_id INT NOT NULL AUTO_INCREMENT,
