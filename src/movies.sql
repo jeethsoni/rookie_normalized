@@ -95,12 +95,13 @@ CREATE TABLE IF NOT EXISTS movie_review(
 -- trigger on movies table after insert to add review to movie_review table
 delimiter //
 CREATE TRIGGER movies.add_movie_review AFTER INSERT ON movies.movie
-       FOR EACH ROW
-       BEGIN
-			INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
-			INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
-            INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
-            INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
-            INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
-       END;//
+    FOR EACH ROW
+    BEGIN
+		
+        INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
+		INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
+        INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
+        INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
+        INSERT INTO movies.movie_review(movie_id, review) VALUES (NEW.movie_id, floor(RAND()*(6-1)+1));
+    END;//
 delimiter ;
